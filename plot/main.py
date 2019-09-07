@@ -2,16 +2,21 @@ from pydub import AudioSegment
 import matplotlib.pyplot as plt
 import wave
 import numpy as np
+import os
 
-def trans_mp3_to_wav(filepath):
+def trans_mp3_to_wav(filepath, targetpath ):
     song = AudioSegment.from_mp3(filepath)
     # print(song.raw_data)
-    # song.export("new.wav",format="wav")
+    song.export(targetpath, format="wav")
 
+
+# if __name__ == "__main__":
+#     a = os.listdir("./data")
+#     print()
 
 if __name__ == "__main__":
     # trans_mp3_to_wav("./data/abc.mp3")
-    f = wave.open("./new.wav")
+    f = wave.open("./data/train_do/do0.wav")
     nchannels, width, frame_rate, frame_n = f.getparams()[:4]
     print(nchannels)
     print(frame_n)

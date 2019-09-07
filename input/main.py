@@ -2,9 +2,15 @@
 import itchat, time
 from itchat.content import *
 
+
+a = 6
+
 @itchat.msg_register([PICTURE, RECORDING, ATTACHMENT, VIDEO])
 def download_files(msg):
-    msg.download(msg.fileName)
+    global a
+    print(msg.fileName)
+    msg.download("do"+str(a)+".mp3")
+    a += 1
     typeSymbol = {
         PICTURE: 'img',
         VIDEO: 'vid', }.get(msg.type, 'fil')
